@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✦ Kuromi's User List ✦</title>
+
+  <!--
+    🎀 FUENTES DE TEXTO
+    Usamos Google Fonts para tener letras bonitas.
+    "Nunito" → texto principal (redondeado y kawaii)
+    "Fredoka One" → títulos grandes
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✦ DECORACIONES DE FONDO (no interactivas) ✦ -->
+  <div class="deco-estrella deco-1">✦</div>
+  <div class="deco-estrella deco-2">✧</div>
+  <div class="deco-estrella deco-3">✦</div>
+  <div class="deco-estrella deco-4">☆</div>
+  <div class="deco-calavera deco-5">☠</div>
+  <div class="deco-calavera deco-6">☠</div>
+
+  <main class="contenedor">
+
+    <!-- ══ CABECERA ══ -->
+    <header class="cabecera">
+
+      <!-- Personaje decorativo CSS -->
+      <div class="kuromi-face">
+        <div class="kuromi-ear ear-left"></div>
+        <div class="kuromi-ear ear-right"></div>
+        <div class="kuromi-head">
+          <div class="kuromi-eyes">
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+          </div>
+          <div class="kuromi-cheeks">
+            <div class="cheek cheek-left"></div>
+            <div class="cheek cheek-right"></div>
+          </div>
+          <div class="kuromi-mouth">✿</div>
+        </div>
+      </div>
+
+      <h1 class="titulo">
+        Kuromi's<br>
+        <span class="titulo-acento">User List</span>
+      </h1>
+      <p class="subtitulo">
+        ☆ datos obtenidos desde una api pública ☆<br>
+        <span class="url-api">jsonplaceholder.typicode.com/users</span>
+      </p>
+    </header>
+
+    <!-- ══ BOTÓN PRINCIPAL ══ -->
+    <!--
+      El botón tiene "onclick" que llama a la función
+      "cargarUsuarios()" de nuestro archivo app.js
+    -->
+    <div class="btn-contenedor">
+      <button class="btn-kawaii" id="btnCargar" onclick="cargarUsuarios()">
+        <span class="btn-icono">☠</span>
+        ¡Cargar Usuarios!
+        <span class="btn-icono">☠</span>
+      </button>
+    </div>
+
+    <!-- ══ ESTADO DE CARGA ══ -->
+    <!--
+      Este panel está OCULTO al inicio.
+      JavaScript lo muestra mientras carga la API.
+    -->
+    <div class="estado-carga hidden" id="estadoCarga">
+      <div class="puntos-carga">
+        <span>●</span><span>●</span><span>●</span>
+      </div>
+      <p class="carga-texto">Invocando usuarios... ☠</p>
+    </div>
+
+    <!-- ══ MENSAJE DE ERROR ══ -->
+    <!--
+      También oculto al inicio.
+      Se muestra si algo sale mal con la petición.
+    -->
+    <div class="panel-error hidden" id="panelError">
+      <span class="error-icono">✖</span>
+      <p class="error-texto" id="textoError"></p>
+    </div>
+
+    <!-- ══ LISTA DE USUARIOS ══ -->
+    <!--
+      PASO 1 de la consigna: una lista vacía con id="userList"
+      JavaScript llenará esta lista con los datos de la API.
+    -->
+    <ul id="userList" class="user-list"></ul>
+
+    <!-- Contador de usuarios -->
+    <div class="contador hidden" id="contador">
+      <span id="textoContador"></span>
+    </div>
+
+  </main>
+
+  <!--
+    Conectamos nuestro archivo JavaScript al FINAL del body.
+    Así el HTML carga primero y JavaScript puede encontrar
+    todos los elementos sin problema.
+  -->
+  <script src="app.js"></script>
+</body>
+</html>
